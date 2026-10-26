@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.8">
+  <world name="task2_curve_light">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="libignition-gazebo-physics-system.so" name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin filename="libignition-gazebo-user-commands-system.so" name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so" name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="libignition-gazebo-sensors-system.so" name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>
+        0 0 10 0 0 0
+      </pose>
+      <diffuse>
+        0.8 0.8 0.8 1
+      </diffuse>
+      <specular>
+        0.2 0.2 0.2 1
+      </specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>
+        -0.5 0.1 -0.9
+      </direction>
+    </light>
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>30 30</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>30 30</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.7 0.7 0.7 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="box_1">
+      <static>true</static>
+      <pose>
+        3 2 0.5 0 0 0
+      </pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2 0.4 0.8 1</ambient>
+            <diffuse>0.2 0.4 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="box_2">
+      <static>true</static>
+      <pose>
+        -3 2 0.75 0 0 0
+      </pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.5 1.5 1.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.5 1.5 1.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.3 0.2 1</ambient>
+            <diffuse>0.8 0.3 0.2 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <actor name="human_1">
+      <skin>
+        <filename>
+          https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae
+        </filename>
+        <scale>1.0</scale>
+      </skin>
+      <animation name="walk">
+        <filename>
+          https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae
+        </filename>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <delay_start>0.0</delay_start>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walk" tension="0.6">
+          <waypoint>
+            <time>0.000</time>
+            <pose>-1.8000 -2.6000 1.0 0 0 0.00000</pose>
+          </waypoint>
+          <waypoint>
+            <time>5.000</time>
+            <pose>1.8000 -2.6000 1.0 0 0 0.00000</pose>
+          </waypoint>
+          <waypoint>
+            <time>5.600</time>
+            <pose>2.0830 -2.7170 1.0 0 0 -0.78540</pose>
+          </waypoint>
+          <waypoint>
+            <time>6.200</time>
+            <pose>2.2000 -3.0000 1.0 0 0 -1.57080</pose>
+          </waypoint>
+          <waypoint>
+            <time>6.800</time>
+            <pose>2.0830 -3.2830 1.0 0 0 -2.35619</pose>
+          </waypoint>
+          <waypoint>
+            <time>7.400</time>
+            <pose>1.8000 -3.4000 1.0 0 0 -3.14159</pose>
+          </waypoint>
+          <waypoint>
+            <time>12.400</time>
+            <pose>-1.8000 -3.4000 1.0 0 0 -3.14159</pose>
+          </waypoint>
+          <waypoint>
+            <time>13.000</time>
+            <pose>-2.0830 -3.2830 1.0 0 0 -3.92699</pose>
+          </waypoint>
+          <waypoint>
+            <time>13.600</time>
+            <pose>-2.2000 -3.0000 1.0 0 0 -4.71239</pose>
+          </waypoint>
+          <waypoint>
+            <time>14.200</time>
+            <pose>-2.0830 -2.7170 1.0 0 0 -5.49779</pose>
+          </waypoint>
+          <waypoint>
+            <time>14.800</time>
+            <pose>-1.8000 -2.6000 1.0 0 0 -6.28319</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <actor name="human_2">
+      <skin>
+        <filename>
+          https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae
+        </filename>
+        <scale>1.0</scale>
+      </skin>
+      <animation name="walk">
+        <filename>
+          https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae
+        </filename>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <delay_start>0.0</delay_start>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walk" tension="0.6">
+          <waypoint>
+            <time>0.000</time>
+            <pose>-0.2000 2.2000 1.0 0 0 0.00000</pose>
+          </waypoint>
+          <waypoint>
+            <time>0.650</time>
+            <pose>0.3500 2.2938 1.0 0 0 0.35210</pose>
+          </waypoint>
+          <waypoint>
+            <time>1.300</time>
+            <pose>0.7526 2.5500 1.0 0 0 0.83398</pose>
+          </waypoint>
+          <waypoint>
+            <time>1.950</time>
+            <pose>0.9000 2.9000 1.0 0 0 1.57080</pose>
+          </waypoint>
+          <waypoint>
+            <time>2.600</time>
+            <pose>0.7526 3.2500 1.0 0 0 2.30761</pose>
+          </waypoint>
+          <waypoint>
+            <time>3.250</time>
+            <pose>0.3500 3.5062 1.0 0 0 2.78950</pose>
+          </waypoint>
+          <waypoint>
+            <time>3.900</time>
+            <pose>-0.2000 3.6000 1.0 0 0 3.14159</pose>
+          </waypoint>
+          <waypoint>
+            <time>4.550</time>
+            <pose>-0.7500 3.5062 1.0 0 0 3.49369</pose>
+          </waypoint>
+          <waypoint>
+            <time>5.200</time>
+            <pose>-1.1526 3.2500 1.0 0 0 3.97557</pose>
+          </waypoint>
+          <waypoint>
+            <time>5.850</time>
+            <pose>-1.3000 2.9000 1.0 0 0 4.71239</pose>
+          </waypoint>
+          <waypoint>
+            <time>6.500</time>
+            <pose>-1.1526 2.5500 1.0 0 0 5.44920</pose>
+          </waypoint>
+          <waypoint>
+            <time>7.150</time>
+            <pose>-0.7500 2.2938 1.0 0 0 5.93109</pose>
+          </waypoint>
+          <waypoint>
+            <time>7.800</time>
+            <pose>-0.2000 2.2000 1.0 0 0 6.28319</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <actor name="human_3">
+      <skin>
+        <filename>
+          https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae
+        </filename>
+        <scale>1.0</scale>
+      </skin>
+      <animation name="walk">
+        <filename>
+          https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae
+        </filename>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <delay_start>2.0</delay_start>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="walk" tension="0.6">
+          <waypoint>
+            <time>0.0</time>
+            <pose>1.2 -4.2 1.0 0 0 1.5708</pose>
+          </waypoint>
+          <waypoint>
+            <time>2.2</time>
+            <pose>1.2 -2.0 1.0 0 0 1.5708</pose>
+          </waypoint>
+          <waypoint>
+            <time>4.4</time>
+            <pose>1.2 0.2 1.0 0 0 1.5708</pose>
+          </waypoint>
+          <waypoint>
+            <time>5.3</time>
+            <pose>1.2 0.2 1.0 0 0 -1.5708</pose>
+          </waypoint>
+          <waypoint>
+            <time>7.5</time>
+            <pose>1.2 -2.0 1.0 0 0 -1.5708</pose>
+          </waypoint>
+          <waypoint>
+            <time>9.7</time>
+            <pose>1.2 -4.2 1.0 0 0 -1.5708</pose>
+          </waypoint>
+          <waypoint>
+            <time>10.6</time>
+            <pose>1.2 -4.2 1.0 0 0 1.5708</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+  </world>
+</sdf>

@@ -1,0 +1,5 @@
+rosbags/
+*.db3
+*.mcap
+*.log
+__pycache__/
