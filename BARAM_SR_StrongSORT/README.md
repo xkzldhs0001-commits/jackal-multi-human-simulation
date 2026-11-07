@@ -2,6 +2,14 @@
 
 Multi-object tracking project using YOLO pedestrian detections, StrongSORT-based motion prediction, and selective appearance feature extraction.
 
+## Project report and results
+
+- [Korean project report: research purpose, methods, quantitative results, and limitations](PROJECT_REPORT_KO.md)
+- [Experiment CSVs and comparison script](experiments/README.md)
+- [Source revision inventory and integration status](CODE_STATUS.md)
+
+The later V4.3/V4.4/V4.5 ZIP packages are not included in this source snapshot. The benchmark summaries describe later runs and should not be presented as results reproduced by the older checkout.
+
 ## Architecture
 
 1. Detect pedestrians using YOLO26n and cache detections for reproducible comparisons.
